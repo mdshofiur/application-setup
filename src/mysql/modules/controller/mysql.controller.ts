@@ -1,6 +1,6 @@
 import { Request, Response } from 'express';
-import { executeQuery } from '../mysql-execute';
-import { queries } from '../mysql-query';
+import { executeQuery } from '../../mysql-execute';
+import { queries } from '../../mysql-query';
 
 export async function createUser(req: Request, res: Response): Promise<void> {
    const { name, email, password } = req.body;
