@@ -1,6 +1,7 @@
 import express, { Express, NextFunction, Request, Response } from 'express';
 import cors from 'cors';
 import 'dotenv/config';
+import { mysqlRouterUsers } from './mysql/routes/mysql.route';
 
 const app: Express = express();
 require('dotenv').config();
@@ -14,7 +15,9 @@ app.get('/', (req: Request, res: Response, next: NextFunction) => {
    res.send('Hello World!');
 });
 
-app.listen(PORT, () => { 
+app.use(mysqlRouterUsers);
+
+app.listen(PORT, () => {
    console.log(`Listening on http://localhost:${PORT}`);
 });
 
